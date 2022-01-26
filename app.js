@@ -64,7 +64,7 @@ bottomDropdown.addEventListener('change', (e) => {
 
 });
 
-catchphraseButton.addEventListener('click', (e) => {
+catchphraseButton.addEventListener('click', () => {
     // get the value of the catchphrase input
     const value = catchphraseInput.value;
     // console.log(value);
