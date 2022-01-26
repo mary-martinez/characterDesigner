@@ -21,7 +21,7 @@ let catchphrases = [''];
 headDropdown.addEventListener('change', (e) => {
     // get the value of the head dropdown
     const value = e.target.value;
-    console.log(value);
+    // console.log(value);
     // increment the head change count state
     headCount++;
 
@@ -32,32 +32,39 @@ headDropdown.addEventListener('change', (e) => {
 });
 
 
-middleDropdown.addEventListener('change', () => {
+middleDropdown.addEventListener('change', (e) => {
     // get the value of the middle dropdown
-
+    const value = e.target.value;
     // increment the middle change count state
-    
+    middleCount++;
     // update the dom for the middle (NOTE: use style.backgroundImage on the middleEl div instead of trying to set the .src -- it's NOT an img tag!)
-
+    middleEl.style.backgroundImage = `url("./assets/${value}-middle.png")`;
     // update the stats to show the new count (refactor to/call displayStats() to do this work)
+    reportEl.textContent = makeStatsString(headCount, middleCount, bottomCount);
+
 });
 
 
-bottomDropdown.addEventListener('change', () => {
+bottomDropdown.addEventListener('change', (e) => {
     // get the value of the bottom dropdown
+    const value = e.target.value;
 
     // increment the bottom change count state
-    
+    bottomCount++;
     // update the dom for the bottom (NOTE use style.backgroundImage on the bottomEl div instead of trying to set the .src -- it's NOT an img tag!)
+    bottomEl.style.backgroundImage = `url("./assets/${value}-pants.png")`;
 
     // update the stats to show the new count (refactor to/call displayStats() to do this work)
+    reportEl.textContent = makeStatsString(headCount, middleCount, bottomCount);
+
 });
 
-catchphraseButton.addEventListener('click', () => {
+catchphraseButton.addEventListener('click', (e) => {
     // get the value of the catchphrase input
-    
+    const value = catchphraseInput.value;
+    // console.log(value);
     // push the new catchphrase to the catchphrase array in state
-
+    
     // clear out the form input's value so it's empty to the user
    
     // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
