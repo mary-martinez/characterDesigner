@@ -12,16 +12,23 @@ const catchphraseInput = document.getElementById('catchphrase-input');
 const catchphraseButton = document.getElementById('catchphrase-button');
 
 // set state for how many times the user changes the head, middle, and bottom
+let headCount = 0;
+let middleCount = 0;
+let bottomCount = 0;
 // set state for all of the character's catchphrases
+let catchphrases = [''];
 
-headDropdown.addEventListener('change', () => {
+headDropdown.addEventListener('change', (e) => {
     // get the value of the head dropdown
-
+    const value = e.target.value;
+    console.log(value);
     // increment the head change count state
-    
-    // update the dom for the head (use style.backgroundImage on the bottomEl div instead of trying to set the .src -- it's NOT an img tag!)
+    headCount++;
 
+    // update the dom for the head (use style.backgroundImage on the bottomEl div instead of trying to set the .src -- it's NOT an img tag!)
+    headEl.style.backgroundImage = `url("./assets/${value}-head.png")`;
     // update the stats to show the new count (refactor to/call displayStats() to do this work)
+    reportEl.textContent = makeStatsString(headCount, middleCount, bottomCount);
 });
 
 
